@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Schedule extends Model
+class ScheduleUnavailability extends Model
 {
     use HasFactory;
 
     protected $casts = [
-        'date' => 'datetime',
         'start_time' => 'datetime',
         'end_time' => 'datetime',
     ];
 
-    public function unavailabilities()
+    public function schedule()
     {
-        return $this->hasMany(ScheduleUnavailability::class);
+        return $this->belongsTo(Schedule::class);
     }
 }
