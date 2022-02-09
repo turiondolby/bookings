@@ -19,9 +19,14 @@ class CreateBooking extends Component
         $this->employees = collect();
     }
 
-    public function updatedStateService()
+    public function updatedStateService($serviceId)
     {
         $this->state['employee'] = '';
+
+        if (! $serviceId) {
+            $this->employees = collect();
+            return;
+        }
 
         $this->employees = $this->selectedService->employees;
     }
