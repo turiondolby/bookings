@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Service;
+use App\Models\Employee;
 
 class CreateBooking extends Component
 {
@@ -38,6 +39,15 @@ class CreateBooking extends Component
         }
 
         return Service::find($this->state['service']);
+    }
+
+    public function getSelectedEmployeeProperty()
+    {
+        if (! $this->state['employee']) {
+            return null;
+        }
+
+        return Employee::find($this->state['employee']);
     }
 
     public function render()
