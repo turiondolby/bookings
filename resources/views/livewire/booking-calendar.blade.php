@@ -40,15 +40,17 @@
 
     <div class="max-h-52 overflow-y-scroll">
         @forelse ($this->availableTimeSlots as $slot)
-            <input type="radio" name="time" id="" value="" class="sr-only">
-            <label for=""
+            <input wire:model="time" type="radio" name="time" id="time_{{ $slot->timestamp }}" value="{{ $slot->timestamp }}" class="sr-only">
+            <label for="time_{{ $slot->timestamp }}"
                    class="w-full text-left focus:outline-none px-4 py-2 cursor-pointer flex items-center border-b border-gray-100">
-{{--                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-700" viewBox="0 0 20 20"--}}
-{{--                     fill="currentColor">--}}
-{{--                    <path fill-rule="evenodd"--}}
-{{--                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"--}}
-{{--                          clip-rule="evenodd"/>--}}
-{{--                </svg>--}}
+                @if ($slot->timestamp == $time)
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-700" viewBox="0 0 20 20"
+                         fill="currentColor">
+                        <path fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                @endif
                 {{ $slot->format('g:i A') }}
             </label>
         @empty

@@ -16,6 +16,8 @@ class BookingCalendar extends Component
 
     public $service;
 
+    public $time;
+
     public function mount()
     {
         $this->calendarStartDate = now();
