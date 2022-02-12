@@ -1,4 +1,5 @@
 <div class="bg-gray-200 max-w-sm mx-auto m-6 p-5 rounded-lg">
+    {{ var_dump($state) }}
     <form>
 
         <div class="mb-6">

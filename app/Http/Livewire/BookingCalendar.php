@@ -24,6 +24,11 @@ class BookingCalendar extends Component
         $this->setDate(now()->timestamp);
     }
 
+    public function updatedTime($time)
+    {
+        $this->emitUp('updated-booking-time', $time);
+    }
+
     public function setDate($timestamp)
     {
         $this->date = $timestamp;
