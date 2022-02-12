@@ -1,5 +1,4 @@
 <div class="bg-gray-200 max-w-sm mx-auto m-6 p-5 rounded-lg">
-    {{ var_dump($state) }}
     <form>
 
         <div class="mb-6">
@@ -9,7 +8,7 @@
             >
                 <option value="">Select a service</option>
                 @foreach ($services as $service)
-                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                    <option value="{{ $service->id }}">{{ $service->name }} ({{ $service->duration }} minutes)</option>
                 @endforeach
             </select>
         </div>
