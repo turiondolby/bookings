@@ -14,7 +14,9 @@ class CreateBooking extends Component
     public $state = [
         'service' => '',
         'employee' => '',
-        'time' => ''
+        'time' => '',
+        'name' => '',
+        'email' => ''
     ];
 
     protected $listeners = [
@@ -29,6 +31,11 @@ class CreateBooking extends Component
     public function setTime($time)
     {
         $this->state['time'] = $time;
+    }
+
+    public function createBooking()
+    {
+        dd($this->state);
     }
 
     public function updatedStateService($serviceId)

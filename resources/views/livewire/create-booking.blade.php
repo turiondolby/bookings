@@ -1,5 +1,5 @@
 <div class="bg-gray-200 max-w-sm mx-auto m-6 p-5 rounded-lg">
-    <form>
+    <form wire:submit.prevent="createBooking">
 
         <div class="mb-6">
             <label for="service" class="inline-block text-gray-700 font-bold mb-2">Select service</label>
@@ -37,12 +37,28 @@
                 <div class="text-gray-700 font-bold mb-2">
                     You're ready to book
                 </div>
+
+                <div class="border-t border-b border-gray-300 py-2">
+                    {{ $this->selectedService->name }} ({{ $this->selectedService->duration }} minutes) with {{ $this->selectedEmployee->name }}
+                    <br> on {{ $this->timeObject->format('D jS M Y') }} at {{ $this->timeObject->format('g:i A') }}
+                </div>
             </div>
 
-            <div class="border-t border-b border-gray-300 py-2">
-                {{ $this->selectedService->name }} ({{ $this->selectedService->duration }} minutes) with {{ $this->selectedEmployee->name }}
-                <br> on {{ $this->timeObject->format('D jS M Y') }} at {{ $this->timeObject->format('g:i A') }}
+            <div class="mb-6">
+                <div class="mb-3">
+                    <label for="name" class="inline-block text-gray-700 font-bold mb-2">Your name</label>
+                    <input wire:model.defer="state.name" type="text" name="name" id="name" class="bg-white h-10 w-full border-none rounded-lg">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="inline-block text-gray-700 font-bold mb-2">Your email</label>
+                    <input wire:model.defer="state.email" type="text" name="email" id="email" class="bg-white h-10 w-full border-none rounded-lg">
+                </div>
             </div>
+
+            <button type="submit" class="bg-indigo-500 text-white h-11 px-4 text-center font-bold rounded-lg w-full">
+                Book now
+            </button>
         @endif
 
     </form>
