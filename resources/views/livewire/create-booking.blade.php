@@ -48,11 +48,23 @@
                 <div class="mb-3">
                     <label for="name" class="inline-block text-gray-700 font-bold mb-2">Your name</label>
                     <input wire:model.defer="state.name" type="text" name="name" id="name" class="bg-white h-10 w-full border-none rounded-lg">
+
+                    @error('state.name')
+                        <div class="font-semibold text-red-500 text-sm mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="inline-block text-gray-700 font-bold mb-2">Your email</label>
                     <input wire:model.defer="state.email" type="text" name="email" id="email" class="bg-white h-10 w-full border-none rounded-lg">
+
+                    @error('state.email')
+                        <div class="font-semibold text-red-500 text-sm mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
